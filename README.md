@@ -26,3 +26,59 @@ We plot the graph with the tgPlot function:
 tgPlot(G);
 title('$G$','interpreter','latex')
 ```
+<img src="https://github.com/cmininni/gFTP/assets/167989205/b0a756b3-847c-4dfb-beb8-98ea98d98d2a" width=50% height=50%>
+
+
+Next, we construct the input structure data_in. We will pass this structure as input argument to gFTP
+```Matlab
+data_in.G = G;
+data_in.mode = 'construction';     %to construct the network; use 'consistency' to only generate $G_{cons}$
+data_in.N_neu_min = [];            %no minimum number of neurons imposed
+```
+Call gFTP
+```Matlab
+[G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
+```
+Check if the output network actually follows graph G_cons
+```Matlab
+is_isomorf=check_dynamics(G_cons,Y',Z_s',Z_t')
+
+is_isomorf =
+
+  logical
+
+   1
+```
+check consistency and construction times in data_out
+```Matlab
+data_out
+
+data_out = 
+
+  struct with fields:
+
+       consistency_time: 0.2358
+      construction_time: 0.5145
+    perceptron_training: 1
+```
+
+Plot consistent graph G_cons
+```Matlab
+tgPlot(G_cons)
+title('$G_{cons}$','interpreter','latex')
+```
+![fig2](https://github.com/cmininni/gFTP/assets/167989205/74bf02d0-b29a-4b17-82da-06982733dcb7)
+<img src="https://github.com/cmininni/gFTP/assets/167989205/b0a756b3-847c-4dfb-beb8-98ea98d98d2a" width=50% height=50%>
+
+Construct and plot auxiliary graph D with function make_D and plot_D
+```Matlab
+D = make_D(G);
+D_cons = make_D(G_cons);
+plot_D(D);
+title('D(G)','interpreter','latex')
+plot_D(D_cons);
+title('$D(G_{cons})$','interpreter','latex')
+```
+![fig3](https://github.com/cmininni/gFTP/assets/167989205/2823b6c7-ee8d-44d3-800d-ffb9c3e15bb1)
+![fig4](https://github.com/cmininni/gFTP/assets/167989205/60b0f25c-8f54-4fb2-9a93-c043437928a0)
+
