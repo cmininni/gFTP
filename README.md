@@ -26,7 +26,7 @@ We plot the graph with the tgPlot function:
 tgPlot(G);
 title('$G$','interpreter','latex')
 ```
-<img src="https://github.com/cmininni/gFTP/assets/167989205/b0a756b3-847c-4dfb-beb8-98ea98d98d2a" width=50% height=50%>
+<img src="fig1.png" width=30% height=30%>
 
 
 Next, we construct the input structure data_in. We will pass this structure as input argument to gFTP
@@ -67,8 +67,7 @@ Plot consistent graph G_cons
 tgPlot(G_cons)
 title('$G_{cons}$','interpreter','latex')
 ```
-![fig2](https://github.com/cmininni/gFTP/assets/167989205/74bf02d0-b29a-4b17-82da-06982733dcb7)
-<img src="https://github.com/cmininni/gFTP/assets/167989205/b0a756b3-847c-4dfb-beb8-98ea98d98d2a" width=50% height=50%>
+<img src="fig2.png" width=50% height=30%>
 
 Construct and plot auxiliary graph D with function make_D and plot_D
 ```Matlab
@@ -79,6 +78,17 @@ title('D(G)','interpreter','latex')
 plot_D(D_cons);
 title('$D(G_{cons})$','interpreter','latex')
 ```
-![fig3](https://github.com/cmininni/gFTP/assets/167989205/2823b6c7-ee8d-44d3-800d-ffb9c3e15bb1)
-![fig4](https://github.com/cmininni/gFTP/assets/167989205/60b0f25c-8f54-4fb2-9a93-c043437928a0)
+<img src="fig3.png" width=50% height=30%>
+<img src="fig4.png" width=50% height=30%>
 
+# Testing with random transition graphs
+% We call function make_rand_G to generate a random graph with 30 nodes and 3 stimuli
+```Matlab
+N_s = 3;
+N_v = 30;
+G = make_rand_G(N_s, N_v, mode);
+```
+% Call gFTP and plot G_cons and matrices Z_s Z_t W_y W_r
+```Matlab
+[G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
+is_isomorf=check_dynamics(G_cons,Y',Z_s',Z_t')
