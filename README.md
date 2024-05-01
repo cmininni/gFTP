@@ -41,7 +41,7 @@ Call gFTP
 ```
 Check if the output network actually follows graph G_cons
 ```Matlab
-is_isomorf=check_dynamics(G_cons,Y',Z_s',Z_t')
+is_isomorf = check_dynamics(G_cons,Y',Z_s',Z_t')
 
 is_isomorf =
 
@@ -86,12 +86,12 @@ We call function make_rand_G to generate a random graph with 30 nodes and 3 stim
 ```Matlab
 N_s = 3;
 N_v = 30;
-G = make_rand_G(N_s, N_v, mode);
+G = make_rand_G(N_s, N_v);
 ```
-Call gFTP and plot G_cons and matrices Z_s Z_t W_y W_r
+Call gFTP and plot G_cons and matrices Z_s, Z_t, W_y, W_r
 ```Matlab
 [G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
-is_isomorf=check_dynamics(G_cons,Y',Z_s',Z_t')
+is_isomorf = check_dynamics(G_cons,Y',Z_s',Z_t')
 figure
 subplot(3,2,1)
 tgPlot(G)
