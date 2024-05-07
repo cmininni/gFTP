@@ -88,6 +88,13 @@ N_s = 3;
 N_v = 30;
 G = make_rand_G(N_s, N_v);
 ```
+Create data_in
+```Matlab
+data_in.G = G;
+data_in.mode = 'construction';
+data_in.N_neu_min = [];
+```
+
 Call gFTP and plot G_cons and matrices Z_s, Z_t, W_y, W_r
 ```Matlab
 [G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
