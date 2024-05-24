@@ -29,7 +29,7 @@ title('$G$','interpreter','latex')
 <img src="fig1.png" width=30% height=30%>
 
 
-Next, we construct the input structure data_in. We will pass this structure as input argument to gFTP
+Next, we construct the input structure *data_in*. We will pass this structure as input argument to gFTP
 ```Matlab
 data_in.G = G;
 data_in.mode = 'construction';     %to construct the network; use 'consistency' to only generate $G_{cons}$
@@ -39,7 +39,7 @@ Call gFTP
 ```Matlab
 [G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
 ```
-Check if the output network actually follows graph G_cons
+Check if the output network actually follows graph *G_cons*
 ```Matlab
 is_isomorf = check_dynamics(G_cons,Y',Z_s',Z_t')
 
@@ -49,7 +49,7 @@ is_isomorf =
 
    1
 ```
-Check consistency and construction times in data_out
+Check consistency and construction times in *data_out*
 ```Matlab
 data_out
 
@@ -62,14 +62,14 @@ data_out =
     perceptron_training: 1
 ```
 
-Plot consistent graph G_cons
+Plot consistent graph *G_cons*
 ```Matlab
 tgPlot(G_cons)
 title('$G_{cons}$','interpreter','latex')
 ```
 <img src="fig2.png" width=30% height=30%>
 
-Construct and plot auxiliary graph D with function make_D and plot_D
+Construct and plot auxiliary graph *D* with function make_D and plot_D
 ```Matlab
 D = make_D(G);
 D_cons = make_D(G_cons);
@@ -88,14 +88,14 @@ N_s = 3;
 N_v = 30;
 G = make_rand_G(N_s, N_v);
 ```
-Create data_in
+Create *data_in*
 ```Matlab
 data_in.G = G;
 data_in.mode = 'construction';
 data_in.N_neu_min = [];
 ```
 
-Call gFTP and plot G_cons and matrices Z_s, Z_t, W_y, W_r
+Call gFTP and plot *G_cons* and matrices *Z_s*, *Z_t*, *W_y*, *W_r*
 ```Matlab
 [G_cons, Y, Z_s, Z_t, W_y, W_r, data_out] = gFTP(data_in);
 is_isomorf = check_dynamics(G_cons,Y',Z_s',Z_t')
