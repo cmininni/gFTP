@@ -2,8 +2,8 @@
 
 MATLAB implementation of the generalised Firing-to-Parameter algorithm (gFTP) introduced in "Constructing neural networks with pre-specified dynamics".  
 
-Function gFTP.m takes as input a structure array named "data" with fields: G (the transition graph in matrix format), mode ('consistency' or 'construction') and N_neu_min.
-It returns G_cons, matrices Z_s, Z_t, W_y, W_r, and structure array data_out, with the time spend constructing G_cons and constructing the activation and synaptic weight matrices.
+Function gFTP.m takes as input a structure array named *data* with fields: *G* (the transition graph in matrix format), *mode* ('consistency' or 'construction') and *N_neu_min* (the minimum number of neurons the output network must have).
+It returns *G_cons*, matrices *Z_s*, *Z_t*, *W_y*, *W_r*, and structure array *data_out*, which containes the time spent constructing *G_cons*, the network's states matrices, and the synaptic weight matrices.
 
 ## An example
 First, we construct a graph $G$ by defining its associated matrix $\mathbf{G}$
