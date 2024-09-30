@@ -41,9 +41,9 @@ Call gFTP
 ```
 Check if the output network actually follows graph *G_cons*
 ```Matlab
-is_isomorf = check_dynamics(G_cons,Y',Z_s',Z_t')
+is_isomorph = check_dynamics(G_cons,Y',Z_s',Z_t')
 
-is_isomorf =
+is_isomorph =
 
   logical
 
